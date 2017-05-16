@@ -40,7 +40,10 @@ namespace Quadrocopter
             SET_KD,
             SET_KI,
             START_MEASUREMENT,
-            SHUTDOWN
+            SHUTDOWN,
+            SET_KP_PITCH,
+            SET_KD_PITCH,
+            SET_KI_PITCH
         }
 
         bool Terminate = false, Running = true;
