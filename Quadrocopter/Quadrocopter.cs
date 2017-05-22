@@ -75,9 +75,9 @@ namespace Quadrocopter
                     PORT.Open();
 
                 StatusLabel.Text = "Connected!";
-                StatusLabel.BackColor = Color.Green;
+                //StatusLabel.BackColor = Color.Green;
 
-                TitleLabel.BackColor = Color.Green;
+                //TitleLabel.BackColor = Color.Green;
 
                 LogTimer.Start();
             }
@@ -85,9 +85,9 @@ namespace Quadrocopter
             catch (Exception e)
             {
                 StatusLabel.Text = "Not Connected!";
-                StatusLabel.BackColor = Color.Red;
+                //StatusLabel.BackColor = Color.Red;
 
-                TitleLabel.BackColor = Color.Red;
+                //TitleLabel.BackColor = Color.Red;
             }
         }
 
@@ -212,7 +212,7 @@ namespace Quadrocopter
             float dataBytes;
             try
             {
-                dataBytes = Convert.ToSingle ( KPBox.Text );
+                dataBytes = Convert.ToSingle ( KP_RollBox.Text );
             }
 
             catch
@@ -242,7 +242,7 @@ namespace Quadrocopter
             float dataBytes;
             try
             {
-                dataBytes = Convert.ToSingle ( KDBox.Text );
+                dataBytes = Convert.ToSingle ( KD_RollBox.Text );
             }
 
             catch
@@ -272,7 +272,7 @@ namespace Quadrocopter
             float dataBytes;
             try
             {
-                dataBytes = Convert.ToSingle ( KIBox.Text );
+                dataBytes = Convert.ToSingle ( KI_RollBox.Text );
             }
 
             catch
