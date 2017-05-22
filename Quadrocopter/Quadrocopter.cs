@@ -77,19 +77,13 @@ namespace Quadrocopter
                     PORT.Open();
 
                 StatusLabel.Text = "Connected!";
-                //StatusLabel.BackColor = Color.Green;
-
-                //TitleLabel.BackColor = Color.Green;
 
                 LogTimer.Start();
             }
 
-            catch (Exception e)
+            catch
             {
                 StatusLabel.Text = "Not Connected!";
-                //StatusLabel.BackColor = Color.Red;
-
-                //TitleLabel.BackColor = Color.Red;
             }
         }
 
@@ -229,7 +223,7 @@ namespace Quadrocopter
             }
 
             Byte[] send = new Byte[4];
-            send[0] = (byte) (Command.SET_KP + 128);
+            send[0] = (byte) (Command.SET_KP_ROLL + 128);
             send[1] = (byte)dataBytes;
             send[2] = (byte)((float)((dataBytes % 1) * 100f));
             send[3] = 255;
@@ -259,7 +253,7 @@ namespace Quadrocopter
             }
 
             Byte[] send = new Byte[4];
-            send[0] = (byte)(Command.SET_KD + 128);
+            send[0] = (byte)(Command.SET_KD_ROLL + 128);
             send[1] = (byte)dataBytes;
             send[2] = (byte)((float)((dataBytes % 1) * 100f));
             send[3] = 255;
@@ -289,7 +283,7 @@ namespace Quadrocopter
             }
 
             Byte[] send = new Byte[4];
-            send[0] = (byte)(Command.SET_KI + 128);
+            send[0] = (byte)(Command.SET_KI_ROLL + 128);
             send[1] = (byte)dataBytes;
             send[2] = (byte)((float)((dataBytes % 1) * 100f));
             send[3] = 255;
