@@ -36,14 +36,16 @@ namespace Quadrocopter
             CALIBRATE_MOTORS,
             TOGGLE_DEBUG_MODE,
             SET_TAU,
-            SET_KP,
-            SET_KD,
-            SET_KI,
+            SET_KP_ROLL,
+            SET_KD_ROLL,
+            SET_KI_ROLL,
             START_MEASUREMENT,
             SHUTDOWN,
             SET_KP_PITCH,
             SET_KD_PITCH,
-            SET_KI_PITCH
+            SET_KI_PITCH,
+            SET_KP_YAW,
+            SET_KI_YAW
         }
 
         bool Terminate = false, Running = true;
@@ -207,7 +209,7 @@ namespace Quadrocopter
             Connect();
         }
 
-        private void KPButton_Click ( object sender, EventArgs e )
+        private void KP_RollButton_Click ( object sender, EventArgs e )
         {
             float dataBytes;
             try
@@ -237,7 +239,7 @@ namespace Quadrocopter
             RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
         }
 
-        private void KDButton_Click ( object sender, EventArgs e )
+        private void KD_RollButton_Click ( object sender, EventArgs e )
         {
             float dataBytes;
             try
@@ -267,7 +269,7 @@ namespace Quadrocopter
             RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
         }
 
-        private void KIButton_Click ( object sender, EventArgs e )
+        private void KI_RollButton_Click ( object sender, EventArgs e )
         {
             float dataBytes;
             try
