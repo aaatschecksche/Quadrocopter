@@ -362,6 +362,7 @@
             this.KI_PitchButton.TabIndex = 13;
             this.KI_PitchButton.Text = "Set KI";
             this.KI_PitchButton.UseVisualStyleBackColor = true;
+            this.KI_PitchButton.Click += new System.EventHandler(this.KI_PitchButton_Click);
             // 
             // KD_PitchButton
             // 
@@ -376,6 +377,7 @@
             this.KD_PitchButton.TabIndex = 12;
             this.KD_PitchButton.Text = "Set KD";
             this.KD_PitchButton.UseVisualStyleBackColor = true;
+            this.KD_PitchButton.Click += new System.EventHandler(this.KD_PitchButton_Click);
             // 
             // KP_PitchButton
             // 
@@ -390,6 +392,7 @@
             this.KP_PitchButton.TabIndex = 11;
             this.KP_PitchButton.Text = "Set KP";
             this.KP_PitchButton.UseVisualStyleBackColor = true;
+            this.KP_PitchButton.Click += new System.EventHandler(this.KP_PitchButton_Click);
             // 
             // KP_YawButton
             // 
@@ -404,6 +407,7 @@
             this.KP_YawButton.TabIndex = 11;
             this.KP_YawButton.Text = "Set KP";
             this.KP_YawButton.UseVisualStyleBackColor = true;
+            this.KP_YawButton.Click += new System.EventHandler(this.KP_YawButton_Click);
             // 
             // KI_YawButton
             // 
@@ -418,6 +422,7 @@
             this.KI_YawButton.TabIndex = 12;
             this.KI_YawButton.Text = "Set KI";
             this.KI_YawButton.UseVisualStyleBackColor = true;
+            this.KI_YawButton.Click += new System.EventHandler(this.KI_YawButton_Click);
             // 
             // KP_YawBox
             // 

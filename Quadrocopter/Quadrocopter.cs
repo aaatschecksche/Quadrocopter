@@ -293,6 +293,156 @@ namespace Quadrocopter
             RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
         }
 
+        private void KP_PitchButton_Click ( object sender, EventArgs e )
+        {
+            float dataBytes;
+            try
+            {
+                dataBytes = Convert.ToSingle ( KP_PitchBox.Text );
+            }
+
+            catch
+            {
+                dataBytes = 0;
+            }
+
+            if (dataBytes >= 128)
+            {
+                MessageBox.Show ( "PISCH BEHINDERT?" );
+                return;
+            }
+
+            Byte[] send = new Byte[4];
+            send[0] = (byte)(Command.SET_KP_PITCH + 128);
+            send[1] = (byte)dataBytes;
+            send[2] = (byte)((float)((dataBytes % 1) * 100f));
+            send[3] = 255;
+
+            PORT.Write ( send, 0, send.Length );
+
+            RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
+        }
+
+        private void KD_PitchButton_Click ( object sender, EventArgs e )
+        {
+            float dataBytes;
+            try
+            {
+                dataBytes = Convert.ToSingle ( KD_PitchBox.Text );
+            }
+
+            catch
+            {
+                dataBytes = 0;
+            }
+
+            if (dataBytes >= 128)
+            {
+                MessageBox.Show ( "PISCH BEHINDERT?" );
+                return;
+            }
+
+            Byte[] send = new Byte[4];
+            send[0] = (byte)(Command.SET_KD_PITCH + 128);
+            send[1] = (byte)dataBytes;
+            send[2] = (byte)((float)((dataBytes % 1) * 100f));
+            send[3] = 255;
+
+            PORT.Write ( send, 0, send.Length );
+
+            RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
+        }
+
+        private void KI_PitchButton_Click ( object sender, EventArgs e )
+        {
+            float dataBytes;
+            try
+            {
+                dataBytes = Convert.ToSingle ( KI_PitchBox.Text );
+            }
+
+            catch
+            {
+                dataBytes = 0;
+            }
+
+            if (dataBytes >= 128)
+            {
+                MessageBox.Show ( "PISCH BEHINDERT?" );
+                return;
+            }
+
+            Byte[] send = new Byte[4];
+            send[0] = (byte)(Command.SET_KI_PITCH + 128);
+            send[1] = (byte)dataBytes;
+            send[2] = (byte)((float)((dataBytes % 1) * 100f));
+            send[3] = 255;
+
+            PORT.Write ( send, 0, send.Length );
+
+            RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
+        }
+
+        private void KP_YawButton_Click ( object sender, EventArgs e )
+        {
+            float dataBytes;
+            try
+            {
+                dataBytes = Convert.ToSingle ( KP_YawBox.Text );
+            }
+
+            catch
+            {
+                dataBytes = 0;
+            }
+
+            if (dataBytes >= 128)
+            {
+                MessageBox.Show ( "PISCH BEHINDERT?" );
+                return;
+            }
+
+            Byte[] send = new Byte[4];
+            send[0] = (byte)(Command.SET_KP_YAW + 128);
+            send[1] = (byte)dataBytes;
+            send[2] = (byte)((float)((dataBytes % 1) * 100f));
+            send[3] = 255;
+
+            PORT.Write ( send, 0, send.Length );
+
+            RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
+        }
+
+        private void KI_YawButton_Click ( object sender, EventArgs e )
+        {
+            float dataBytes;
+            try
+            {
+                dataBytes = Convert.ToSingle ( KI_YawBox.Text );
+            }
+
+            catch
+            {
+                dataBytes = 0;
+            }
+
+            if (dataBytes >= 128)
+            {
+                MessageBox.Show ( "PISCH BEHINDERT?" );
+                return;
+            }
+
+            Byte[] send = new Byte[4];
+            send[0] = (byte)(Command.SET_KI_YAW + 128);
+            send[1] = (byte)dataBytes;
+            send[2] = (byte)((float)((dataBytes % 1) * 100f));
+            send[3] = 255;
+
+            PORT.Write ( send, 0, send.Length );
+
+            RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             Running ^= true;
