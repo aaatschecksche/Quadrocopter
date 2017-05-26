@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
-
+using System.IO;
 
 namespace Quadrocopter
 {
@@ -56,7 +56,7 @@ namespace Quadrocopter
         {
             InitializeComponent();
 
-            COMPORT = comPort;
+            COMPORT = comPort;        
             this.baudrate = baudrate;
 
             // FILL COMMAND SELECTOR
@@ -84,9 +84,9 @@ namespace Quadrocopter
             catch
             {
                 StatusLabel.Text = "Not Connected!";
+                StatusLabel.BackColor = Color.Red;
             }
         }
-
 
         private void PORT_DataRecieved(object sender, SerialDataReceivedEventArgs e)
         {
@@ -441,6 +441,75 @@ namespace Quadrocopter
             PORT.Write ( send, 0, send.Length );
 
             RecieveBox.Text += LogTimerString + ((Command)(send[0] - 128)).ToString () + " - " + dataBytes.ToString () + "\n";
+        }
+
+        private void ExportButton_Click ( object sender, EventArgs e )
+        {
+            SaveFileDialog dialog = new SaveFileDialog ();
+            dialog.Filter = "Quadrocopter Regulation Value Set|*.set";
+            dialog.InitialDirectory = Application.StartupPath;
+            dialog.FileName = "RegValSet01";
+            var result = dialog.ShowDialog ();
+
+            if (result == DialogResult.OK)
+            {
+                String saveText = "";
+
+                saveText += "KP_ROLL;" + KP_RollBox.Text + "\n";
+                saveText += "KD_ROLL;" + KD_RollBox.Text + "\n";
+                saveText += "KI_ROLL;" + KI_RollBox.Text + "\n";
+
+                saveText += "KP_PITCH;" + KP_PitchBox.Text + "\n";
+                saveText += "KD_PITCH;" + KD_PitchBox.Text + "\n";
+                saveText += "KI_PITCH;" + KI_PitchBox.Text + "\n";
+
+                saveText += "KP_YAW;" + KP_YawBox.Text + "\n";
+                saveText += "KP_YAW;" + KI_YawBox.Text + "\n";
+
+                try
+                { 
+                    File.WriteAllText ( dialog.FileName, saveText );
+                }
+
+                catch ( Exception ex )
+                {
+                    MessageBox.Show ( ex.Message );
+                }
+            }
+        }
+
+        private void ImportButton_Click ( object sender, EventArgs e )
+        {
+            OpenFileDialog dialog = new OpenFileDialog ();
+            dialog.Filter = "Regulation Value Set|*.set";
+            dialog.InitialDirectory = Application.StartupPath;
+
+            var result = dialog.ShowDialog ();
+
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    string[] lines = System.IO.File.ReadAllLines ( dialog.FileName );
+
+                    KP_RollBox.Text = lines[0].Split ( ';' )[1];
+                    KD_RollBox.Text = lines[1].Split ( ';' )[1];
+                    KI_RollBox.Text = lines[2].Split ( ';' )[1];
+
+                    KP_PitchBox.Text = lines[3].Split ( ';' )[1];
+                    KD_PitchBox.Text = lines[4].Split ( ';' )[1];
+                    KI_PitchBox.Text = lines[5].Split ( ';' )[1];
+
+                    KP_YawBox.Text = lines[6].Split ( ';' )[1];
+                    KI_YawBox.Text = lines[7].Split ( ';' )[1];
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show ( ex.Message );
+                }
+            }
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

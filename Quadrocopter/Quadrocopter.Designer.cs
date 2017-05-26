@@ -60,6 +60,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.ExportButton = new System.Windows.Forms.Button();
+            this.ImportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StatusLabel
@@ -238,7 +240,7 @@
             this.KP_RollButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KP_RollButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KP_RollButton.ForeColor = System.Drawing.Color.Black;
-            this.KP_RollButton.Location = new System.Drawing.Point(571, 131);
+            this.KP_RollButton.Location = new System.Drawing.Point(571, 113);
             this.KP_RollButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KP_RollButton.Name = "KP_RollButton";
             this.KP_RollButton.Size = new System.Drawing.Size(75, 23);
@@ -253,7 +255,7 @@
             this.KD_RollButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KD_RollButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KD_RollButton.ForeColor = System.Drawing.Color.Black;
-            this.KD_RollButton.Location = new System.Drawing.Point(571, 159);
+            this.KD_RollButton.Location = new System.Drawing.Point(571, 141);
             this.KD_RollButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KD_RollButton.Name = "KD_RollButton";
             this.KD_RollButton.Size = new System.Drawing.Size(75, 23);
@@ -268,7 +270,7 @@
             this.KI_RollButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KI_RollButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KI_RollButton.ForeColor = System.Drawing.Color.Black;
-            this.KI_RollButton.Location = new System.Drawing.Point(571, 187);
+            this.KI_RollButton.Location = new System.Drawing.Point(571, 169);
             this.KI_RollButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KI_RollButton.Name = "KI_RollButton";
             this.KI_RollButton.Size = new System.Drawing.Size(75, 23);
@@ -282,7 +284,7 @@
             this.KP_RollBox.BackColor = System.Drawing.Color.White;
             this.KP_RollBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KP_RollBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KP_RollBox.Location = new System.Drawing.Point(496, 131);
+            this.KP_RollBox.Location = new System.Drawing.Point(496, 113);
             this.KP_RollBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KP_RollBox.Name = "KP_RollBox";
             this.KP_RollBox.Size = new System.Drawing.Size(69, 24);
@@ -294,7 +296,7 @@
             this.KD_RollBox.BackColor = System.Drawing.Color.White;
             this.KD_RollBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KD_RollBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KD_RollBox.Location = new System.Drawing.Point(496, 159);
+            this.KD_RollBox.Location = new System.Drawing.Point(496, 141);
             this.KD_RollBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KD_RollBox.Name = "KD_RollBox";
             this.KD_RollBox.Size = new System.Drawing.Size(69, 24);
@@ -306,7 +308,7 @@
             this.KI_RollBox.BackColor = System.Drawing.Color.White;
             this.KI_RollBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KI_RollBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KI_RollBox.Location = new System.Drawing.Point(496, 187);
+            this.KI_RollBox.Location = new System.Drawing.Point(496, 169);
             this.KI_RollBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KI_RollBox.Name = "KI_RollBox";
             this.KI_RollBox.Size = new System.Drawing.Size(69, 24);
@@ -318,7 +320,7 @@
             this.KI_PitchBox.BackColor = System.Drawing.Color.White;
             this.KI_PitchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KI_PitchBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KI_PitchBox.Location = new System.Drawing.Point(652, 187);
+            this.KI_PitchBox.Location = new System.Drawing.Point(652, 169);
             this.KI_PitchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KI_PitchBox.Name = "KI_PitchBox";
             this.KI_PitchBox.Size = new System.Drawing.Size(69, 24);
@@ -330,7 +332,7 @@
             this.KD_PitchBox.BackColor = System.Drawing.Color.White;
             this.KD_PitchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KD_PitchBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KD_PitchBox.Location = new System.Drawing.Point(652, 159);
+            this.KD_PitchBox.Location = new System.Drawing.Point(652, 141);
             this.KD_PitchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KD_PitchBox.Name = "KD_PitchBox";
             this.KD_PitchBox.Size = new System.Drawing.Size(69, 24);
@@ -342,7 +344,7 @@
             this.KP_PitchBox.BackColor = System.Drawing.Color.White;
             this.KP_PitchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KP_PitchBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KP_PitchBox.Location = new System.Drawing.Point(652, 131);
+            this.KP_PitchBox.Location = new System.Drawing.Point(652, 113);
             this.KP_PitchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KP_PitchBox.Name = "KP_PitchBox";
             this.KP_PitchBox.Size = new System.Drawing.Size(69, 24);
@@ -355,7 +357,7 @@
             this.KI_PitchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KI_PitchButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KI_PitchButton.ForeColor = System.Drawing.Color.Black;
-            this.KI_PitchButton.Location = new System.Drawing.Point(727, 187);
+            this.KI_PitchButton.Location = new System.Drawing.Point(727, 169);
             this.KI_PitchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KI_PitchButton.Name = "KI_PitchButton";
             this.KI_PitchButton.Size = new System.Drawing.Size(75, 24);
@@ -370,7 +372,7 @@
             this.KD_PitchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KD_PitchButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KD_PitchButton.ForeColor = System.Drawing.Color.Black;
-            this.KD_PitchButton.Location = new System.Drawing.Point(727, 159);
+            this.KD_PitchButton.Location = new System.Drawing.Point(727, 141);
             this.KD_PitchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KD_PitchButton.Name = "KD_PitchButton";
             this.KD_PitchButton.Size = new System.Drawing.Size(75, 23);
@@ -385,7 +387,7 @@
             this.KP_PitchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KP_PitchButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KP_PitchButton.ForeColor = System.Drawing.Color.Black;
-            this.KP_PitchButton.Location = new System.Drawing.Point(727, 131);
+            this.KP_PitchButton.Location = new System.Drawing.Point(727, 113);
             this.KP_PitchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KP_PitchButton.Name = "KP_PitchButton";
             this.KP_PitchButton.Size = new System.Drawing.Size(75, 23);
@@ -400,7 +402,7 @@
             this.KP_YawButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KP_YawButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KP_YawButton.ForeColor = System.Drawing.Color.Black;
-            this.KP_YawButton.Location = new System.Drawing.Point(883, 133);
+            this.KP_YawButton.Location = new System.Drawing.Point(883, 115);
             this.KP_YawButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KP_YawButton.Name = "KP_YawButton";
             this.KP_YawButton.Size = new System.Drawing.Size(75, 23);
@@ -415,7 +417,7 @@
             this.KI_YawButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KI_YawButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KI_YawButton.ForeColor = System.Drawing.Color.Black;
-            this.KI_YawButton.Location = new System.Drawing.Point(883, 188);
+            this.KI_YawButton.Location = new System.Drawing.Point(883, 170);
             this.KI_YawButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KI_YawButton.Name = "KI_YawButton";
             this.KI_YawButton.Size = new System.Drawing.Size(75, 23);
@@ -429,7 +431,7 @@
             this.KP_YawBox.BackColor = System.Drawing.Color.White;
             this.KP_YawBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KP_YawBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KP_YawBox.Location = new System.Drawing.Point(808, 132);
+            this.KP_YawBox.Location = new System.Drawing.Point(808, 114);
             this.KP_YawBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KP_YawBox.Name = "KP_YawBox";
             this.KP_YawBox.Size = new System.Drawing.Size(69, 24);
@@ -441,7 +443,7 @@
             this.KI_YawBox.BackColor = System.Drawing.Color.White;
             this.KI_YawBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KI_YawBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KI_YawBox.Location = new System.Drawing.Point(808, 187);
+            this.KI_YawBox.Location = new System.Drawing.Point(808, 169);
             this.KI_YawBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KI_YawBox.Name = "KI_YawBox";
             this.KI_YawBox.Size = new System.Drawing.Size(69, 24);
@@ -454,7 +456,7 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Exo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(496, 91);
+            this.label3.Location = new System.Drawing.Point(496, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 35);
             this.label3.TabIndex = 0;
@@ -467,7 +469,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Exo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(652, 91);
+            this.label4.Location = new System.Drawing.Point(652, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 35);
             this.label4.TabIndex = 0;
@@ -480,7 +482,7 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Exo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(808, 91);
+            this.label6.Location = new System.Drawing.Point(808, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 35);
             this.label6.TabIndex = 0;
@@ -500,12 +502,38 @@
             this.label7.Text = "Monitor";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ExportButton
+            // 
+            this.ExportButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExportButton.ForeColor = System.Drawing.Color.Black;
+            this.ExportButton.Location = new System.Drawing.Point(496, 199);
+            this.ExportButton.Name = "ExportButton";
+            this.ExportButton.Size = new System.Drawing.Size(225, 27);
+            this.ExportButton.TabIndex = 18;
+            this.ExportButton.Text = "Export regluation values";
+            this.ExportButton.UseVisualStyleBackColor = true;
+            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            // 
+            // ImportButton
+            // 
+            this.ImportButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportButton.ForeColor = System.Drawing.Color.Black;
+            this.ImportButton.Location = new System.Drawing.Point(727, 198);
+            this.ImportButton.Name = "ImportButton";
+            this.ImportButton.Size = new System.Drawing.Size(231, 27);
+            this.ImportButton.TabIndex = 18;
+            this.ImportButton.Text = "Import regluation values";
+            this.ImportButton.UseVisualStyleBackColor = true;
+            this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
+            // 
             // Quadrocopter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(973, 752);
+            this.Controls.Add(this.ImportButton);
+            this.Controls.Add(this.ExportButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.KI_PitchBox);
             this.Controls.Add(this.KI_YawBox);
@@ -585,5 +613,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button ExportButton;
+        private System.Windows.Forms.Button ImportButton;
     }
 }
