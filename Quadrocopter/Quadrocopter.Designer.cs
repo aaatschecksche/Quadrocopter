@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StatusLabel = new System.Windows.Forms.Label();
             this.SendButton = new System.Windows.Forms.Button();
             this.SendBox = new System.Windows.Forms.RichTextBox();
             this.RecieveBox = new System.Windows.Forms.RichTextBox();
@@ -62,20 +61,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.ExportButton = new System.Windows.Forms.Button();
             this.ImportButton = new System.Windows.Forms.Button();
+            this.ConnectButton = new System.Windows.Forms.Button();
+            this.DisconnectButton = new System.Windows.Forms.Button();
+            this.ConnectionStrip = new System.Windows.Forms.StatusStrip();
+            this.ConnectionLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ConnectionStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // StatusLabel
-            // 
-            this.StatusLabel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.StatusLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.StatusLabel.Font = new System.Drawing.Font("Exo", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusLabel.ForeColor = System.Drawing.Color.Black;
-            this.StatusLabel.Location = new System.Drawing.Point(496, 9);
-            this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(462, 40);
-            this.StatusLabel.TabIndex = 0;
-            this.StatusLabel.Text = "Connecting";
-            this.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SendButton
             // 
@@ -146,7 +137,7 @@
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(465, 40);
             this.TitleLabel.TabIndex = 0;
-            this.TitleLabel.Text = "Quadrocopter Gold Edition";
+            this.TitleLabel.Text = "QUADROCOPTER GOLD EDITION";
             this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -159,7 +150,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Command";
+            this.label1.Text = "COMMAND";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -172,7 +163,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 35);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Data";
+            this.label2.Text = "DATA";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -185,7 +176,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 35);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Log";
+            this.label5.Text = "LOG";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ClearLog
@@ -223,14 +214,13 @@
             this.ListeningCheckBox.Checked = true;
             this.ListeningCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ListeningCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ListeningCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ListeningCheckBox.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListeningCheckBox.Location = new System.Drawing.Point(266, 259);
             this.ListeningCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ListeningCheckBox.Name = "ListeningCheckBox";
             this.ListeningCheckBox.Size = new System.Drawing.Size(113, 34);
             this.ListeningCheckBox.TabIndex = 6;
-            this.ListeningCheckBox.Text = "Listening";
+            this.ListeningCheckBox.Text = "LISTENING";
             this.ListeningCheckBox.UseVisualStyleBackColor = true;
             this.ListeningCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -245,7 +235,7 @@
             this.KP_RollButton.Name = "KP_RollButton";
             this.KP_RollButton.Size = new System.Drawing.Size(75, 23);
             this.KP_RollButton.TabIndex = 7;
-            this.KP_RollButton.Text = "Set KP";
+            this.KP_RollButton.Text = "SET KP";
             this.KP_RollButton.UseVisualStyleBackColor = true;
             this.KP_RollButton.Click += new System.EventHandler(this.KP_RollButton_Click);
             // 
@@ -260,7 +250,7 @@
             this.KD_RollButton.Name = "KD_RollButton";
             this.KD_RollButton.Size = new System.Drawing.Size(75, 23);
             this.KD_RollButton.TabIndex = 8;
-            this.KD_RollButton.Text = "Set KD";
+            this.KD_RollButton.Text = "SET KD";
             this.KD_RollButton.UseVisualStyleBackColor = true;
             this.KD_RollButton.Click += new System.EventHandler(this.KD_RollButton_Click);
             // 
@@ -275,7 +265,7 @@
             this.KI_RollButton.Name = "KI_RollButton";
             this.KI_RollButton.Size = new System.Drawing.Size(75, 23);
             this.KI_RollButton.TabIndex = 9;
-            this.KI_RollButton.Text = "Set KI";
+            this.KI_RollButton.Text = "SET KI";
             this.KI_RollButton.UseVisualStyleBackColor = true;
             this.KI_RollButton.Click += new System.EventHandler(this.KI_RollButton_Click);
             // 
@@ -362,7 +352,7 @@
             this.KI_PitchButton.Name = "KI_PitchButton";
             this.KI_PitchButton.Size = new System.Drawing.Size(75, 24);
             this.KI_PitchButton.TabIndex = 13;
-            this.KI_PitchButton.Text = "Set KI";
+            this.KI_PitchButton.Text = "SET KI";
             this.KI_PitchButton.UseVisualStyleBackColor = true;
             this.KI_PitchButton.Click += new System.EventHandler(this.KI_PitchButton_Click);
             // 
@@ -377,7 +367,7 @@
             this.KD_PitchButton.Name = "KD_PitchButton";
             this.KD_PitchButton.Size = new System.Drawing.Size(75, 23);
             this.KD_PitchButton.TabIndex = 12;
-            this.KD_PitchButton.Text = "Set KD";
+            this.KD_PitchButton.Text = "SET KD";
             this.KD_PitchButton.UseVisualStyleBackColor = true;
             this.KD_PitchButton.Click += new System.EventHandler(this.KD_PitchButton_Click);
             // 
@@ -392,7 +382,7 @@
             this.KP_PitchButton.Name = "KP_PitchButton";
             this.KP_PitchButton.Size = new System.Drawing.Size(75, 23);
             this.KP_PitchButton.TabIndex = 11;
-            this.KP_PitchButton.Text = "Set KP";
+            this.KP_PitchButton.Text = "SET KP";
             this.KP_PitchButton.UseVisualStyleBackColor = true;
             this.KP_PitchButton.Click += new System.EventHandler(this.KP_PitchButton_Click);
             // 
@@ -407,7 +397,7 @@
             this.KP_YawButton.Name = "KP_YawButton";
             this.KP_YawButton.Size = new System.Drawing.Size(75, 23);
             this.KP_YawButton.TabIndex = 11;
-            this.KP_YawButton.Text = "Set KP";
+            this.KP_YawButton.Text = "SET KP";
             this.KP_YawButton.UseVisualStyleBackColor = true;
             this.KP_YawButton.Click += new System.EventHandler(this.KP_YawButton_Click);
             // 
@@ -422,7 +412,7 @@
             this.KI_YawButton.Name = "KI_YawButton";
             this.KI_YawButton.Size = new System.Drawing.Size(75, 23);
             this.KI_YawButton.TabIndex = 12;
-            this.KI_YawButton.Text = "Set KI";
+            this.KI_YawButton.Text = "SET KI";
             this.KI_YawButton.UseVisualStyleBackColor = true;
             this.KI_YawButton.Click += new System.EventHandler(this.KI_YawButton_Click);
             // 
@@ -460,7 +450,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 35);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Roll";
+            this.label3.Text = "ROLL";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -473,7 +463,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 35);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Pitch";
+            this.label4.Text = "PITCH";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -486,7 +476,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 35);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Yaw";
+            this.label6.Text = "YAW";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -499,39 +489,91 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(129, 35);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Monitor";
+            this.label7.Text = "MONITOR";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ExportButton
             // 
+            this.ExportButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExportButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExportButton.ForeColor = System.Drawing.Color.Black;
             this.ExportButton.Location = new System.Drawing.Point(496, 199);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(225, 27);
             this.ExportButton.TabIndex = 18;
-            this.ExportButton.Text = "Export regluation values";
+            this.ExportButton.Text = "EXPORT REGULATION VALUES";
             this.ExportButton.UseVisualStyleBackColor = true;
             this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
             // 
             // ImportButton
             // 
+            this.ImportButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ImportButton.Font = new System.Drawing.Font("Exo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportButton.ForeColor = System.Drawing.Color.Black;
             this.ImportButton.Location = new System.Drawing.Point(727, 198);
             this.ImportButton.Name = "ImportButton";
             this.ImportButton.Size = new System.Drawing.Size(231, 27);
             this.ImportButton.TabIndex = 18;
-            this.ImportButton.Text = "Import regluation values";
+            this.ImportButton.Text = "IMPORT REGULATION VALUES";
             this.ImportButton.UseVisualStyleBackColor = true;
             this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
+            // 
+            // ConnectButton
+            // 
+            this.ConnectButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ConnectButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConnectButton.Font = new System.Drawing.Font("Exo", 15F);
+            this.ConnectButton.ForeColor = System.Drawing.Color.Black;
+            this.ConnectButton.Location = new System.Drawing.Point(496, 9);
+            this.ConnectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ConnectButton.Name = "ConnectButton";
+            this.ConnectButton.Size = new System.Drawing.Size(225, 40);
+            this.ConnectButton.TabIndex = 1;
+            this.ConnectButton.Text = "CONNECT";
+            this.ConnectButton.UseVisualStyleBackColor = true;
+            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
+            // 
+            // DisconnectButton
+            // 
+            this.DisconnectButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.DisconnectButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DisconnectButton.Font = new System.Drawing.Font("Exo", 15F);
+            this.DisconnectButton.ForeColor = System.Drawing.Color.Black;
+            this.DisconnectButton.Location = new System.Drawing.Point(727, 9);
+            this.DisconnectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DisconnectButton.Name = "DisconnectButton";
+            this.DisconnectButton.Size = new System.Drawing.Size(231, 40);
+            this.DisconnectButton.TabIndex = 1;
+            this.DisconnectButton.Text = "DISCONNECT";
+            this.DisconnectButton.UseVisualStyleBackColor = true;
+            this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click);
+            // 
+            // ConnectionStrip
+            // 
+            this.ConnectionStrip.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ConnectionStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ConnectionStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConnectionLabel});
+            this.ConnectionStrip.Location = new System.Drawing.Point(0, 753);
+            this.ConnectionStrip.Name = "ConnectionStrip";
+            this.ConnectionStrip.Size = new System.Drawing.Size(973, 28);
+            this.ConnectionStrip.SizingGrip = false;
+            this.ConnectionStrip.TabIndex = 19;
+            // 
+            // ConnectionLabel
+            // 
+            this.ConnectionLabel.Font = new System.Drawing.Font("Exo", 10F);
+            this.ConnectionLabel.Name = "ConnectionLabel";
+            this.ConnectionLabel.Size = new System.Drawing.Size(165, 23);
+            this.ConnectionLabel.Text = "READY TO CONNECT";
             // 
             // Quadrocopter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(973, 752);
+            this.ClientSize = new System.Drawing.Size(973, 781);
+            this.Controls.Add(this.ConnectionStrip);
             this.Controls.Add(this.ImportButton);
             this.Controls.Add(this.ExportButton);
             this.Controls.Add(this.label7);
@@ -557,6 +599,8 @@
             this.Controls.Add(this.DebugBox);
             this.Controls.Add(this.RecieveBox);
             this.Controls.Add(this.SendBox);
+            this.Controls.Add(this.DisconnectButton);
+            this.Controls.Add(this.ConnectButton);
             this.Controls.Add(this.SendButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
@@ -565,7 +609,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TitleLabel);
-            this.Controls.Add(this.StatusLabel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -573,15 +616,14 @@
             this.Name = "Quadrocopter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "What a Quadrocopter";
-            this.Load += new System.EventHandler(this.Quadrocopter_Load);
+            this.ConnectionStrip.ResumeLayout(false);
+            this.ConnectionStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.RichTextBox SendBox;
         private System.Windows.Forms.RichTextBox RecieveBox;
@@ -615,5 +657,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button ExportButton;
         private System.Windows.Forms.Button ImportButton;
+        private System.Windows.Forms.Button ConnectButton;
+        private System.Windows.Forms.Button DisconnectButton;
+        private System.Windows.Forms.StatusStrip ConnectionStrip;
+        private System.Windows.Forms.ToolStripStatusLabel ConnectionLabel;
     }
 }

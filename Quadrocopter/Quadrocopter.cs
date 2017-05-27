@@ -17,6 +17,7 @@ namespace Quadrocopter
     public partial class Quadrocopter : Form
     {
         public SerialPort PORT;
+        bool Connected = false;
 
         string COMPORT;
         int baudrate;
@@ -65,28 +66,6 @@ namespace Quadrocopter
 
             CommandSelector.SelectedIndex = 0;
         } 
-
-        private void Connect()
-        {
-            try
-            {
-                PORT = new SerialPort(COMPORT, baudrate);
-                PORT.DataReceived += PORT_DataRecieved;
-
-                if (!PORT.IsOpen)
-                    PORT.Open();
-
-                StatusLabel.Text = "Connected!";
-
-                LogTimer.Start();
-            }
-
-            catch
-            {
-                StatusLabel.Text = "Not Connected!";
-                StatusLabel.BackColor = Color.Red;
-            }
-        }
 
         private void PORT_DataRecieved(object sender, SerialDataReceivedEventArgs e)
         {
@@ -196,11 +175,6 @@ namespace Quadrocopter
             RecieveBox.Text = "";
             DebugBox.Text = "";
             LogTimer.Restart();
-        }
-
-        private void Quadrocopter_Load(object sender, EventArgs e)
-        {
-            Connect();
         }
 
         private void KP_RollButton_Click ( object sender, EventArgs e )
@@ -455,16 +429,16 @@ namespace Quadrocopter
             {
                 String saveText = "";
 
-                saveText += "KP_ROLL;" + KP_RollBox.Text + "\n";
-                saveText += "KD_ROLL;" + KD_RollBox.Text + "\n";
-                saveText += "KI_ROLL;" + KI_RollBox.Text + "\n";
+                saveText += "KP_ROLL:" + KP_RollBox.Text + "\n";
+                saveText += "KD_ROLL:" + KD_RollBox.Text + "\n";
+                saveText += "KI_ROLL:" + KI_RollBox.Text + "\n";
 
-                saveText += "KP_PITCH;" + KP_PitchBox.Text + "\n";
-                saveText += "KD_PITCH;" + KD_PitchBox.Text + "\n";
-                saveText += "KI_PITCH;" + KI_PitchBox.Text + "\n";
+                saveText += "KP_PITCH:" + KP_PitchBox.Text + "\n";
+                saveText += "KD_PITCH:" + KD_PitchBox.Text + "\n";
+                saveText += "KI_PITCH:" + KI_PitchBox.Text + "\n";
 
-                saveText += "KP_YAW;" + KP_YawBox.Text + "\n";
-                saveText += "KP_YAW;" + KI_YawBox.Text + "\n";
+                saveText += "KP_YAW:" + KP_YawBox.Text + "\n";
+                saveText += "KP_YAW:" + KI_YawBox.Text + "\n";
 
                 try
                 { 
@@ -492,16 +466,16 @@ namespace Quadrocopter
                 {
                     string[] lines = System.IO.File.ReadAllLines ( dialog.FileName );
 
-                    KP_RollBox.Text = lines[0].Split ( ';' )[1];
-                    KD_RollBox.Text = lines[1].Split ( ';' )[1];
-                    KI_RollBox.Text = lines[2].Split ( ';' )[1];
+                    KP_RollBox.Text = lines[0].Split ( ':' )[1];
+                    KD_RollBox.Text = lines[1].Split ( ':' )[1];
+                    KI_RollBox.Text = lines[2].Split ( ':' )[1];
 
-                    KP_PitchBox.Text = lines[3].Split ( ';' )[1];
-                    KD_PitchBox.Text = lines[4].Split ( ';' )[1];
-                    KI_PitchBox.Text = lines[5].Split ( ';' )[1];
+                    KP_PitchBox.Text = lines[3].Split ( ':' )[1];
+                    KD_PitchBox.Text = lines[4].Split ( ':' )[1];
+                    KI_PitchBox.Text = lines[5].Split ( ':' )[1];
 
-                    KP_YawBox.Text = lines[6].Split ( ';' )[1];
-                    KI_YawBox.Text = lines[7].Split ( ';' )[1];
+                    KP_YawBox.Text = lines[6].Split ( ':' )[1];
+                    KI_YawBox.Text = lines[7].Split ( ':' )[1];
                 }
 
                 catch (Exception ex)
@@ -510,6 +484,99 @@ namespace Quadrocopter
                 }
             }
 
+        }
+
+        private void ConnectButton_Click ( object sender, EventArgs e )
+        {
+            Thread connectionThread = new Thread ( () =>
+            {
+                Invoke ( (MethodInvoker)delegate
+                {
+                    ConnectionLabel.Text = "CONNECTING...";
+                    ConnectionStrip.BackColor = Color.Blue;
+                } );
+
+                try
+                {
+                    PORT = new SerialPort ( COMPORT, baudrate );
+                    PORT.DataReceived += PORT_DataRecieved;
+
+                    if (!PORT.IsOpen)
+                        PORT.Open ();
+
+                    Invoke ( (MethodInvoker)delegate
+                    {
+                        ConnectionLabel.Text = "CONNECTED!";
+                        ConnectionStrip.BackColor = Color.Green;
+                        LogTimer.Start ();
+                        Connected = true;
+                    } );
+
+
+                }
+
+                catch
+                {
+                    Invoke ( (MethodInvoker)delegate
+                    {
+                        ConnectionLabel.Text = "FAILED TO CONNECT!";
+                        ConnectionStrip.BackColor = Color.Red;
+                    } );
+
+                    Thread.Sleep ( 3000 );
+
+                    Invoke ( (MethodInvoker)delegate
+                    {
+                        if (Connected)
+                        {
+                            ConnectionLabel.Text = "CONNECTED!";
+                            ConnectionStrip.BackColor = Color.Green;
+                        }
+
+                        else
+                        {
+                            ConnectionLabel.Text = "READY TO CONNECT!";
+                            ConnectionStrip.BackColor = System.Drawing.SystemColors.AppWorkspace;
+                        }                        
+                    } );
+                }
+            } );
+
+            connectionThread.Start ();
+        }
+
+        private void DisconnectButton_Click ( object sender, EventArgs e )
+        {
+            Thread disconnectionThread = new Thread ( () =>
+            {
+                Connected = false;
+
+                if (PORT != null)
+                {
+                    ConnectionLabel.Text = "DISCONNECTING!";
+                    ConnectionStrip.BackColor = System.Drawing.SystemColors.ControlDark;
+
+                    Thread.Sleep ( 3000 );
+
+                
+                    PORT.DataReceived -= PORT_DataRecieved;
+                    PORT.Close ();
+                    PORT.Dispose ();
+                }
+
+                else
+                {
+                    ConnectionLabel.Text = "CONNECT FIRST!";
+                    ConnectionStrip.BackColor = System.Drawing.SystemColors.ControlDark;
+
+                    Thread.Sleep ( 3000 );
+                }
+
+                ConnectionLabel.Text = "READY TO CONNECT!";
+                ConnectionStrip.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            } );
+
+            disconnectionThread.Start ();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
